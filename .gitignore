@@ -1,2 +1,8 @@
 __pycache__
 .ipynb_checkpoints
+*.dep
+*.ewd
+*.ewp
+*.ewt
+settings
+Debug
