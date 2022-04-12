@@ -62,8 +62,9 @@ def connect(name, passkey):
 """
 Function that takes a connection object and data to send to the bluetooth module and an optional buffer size
 """
-def send(conn, data, buffer = 1024):
-    conn.recv(buffer)
+def send(conn, data, buffer = 0):
+    if buffer:
+        conn.recv(buffer)
     conn.send(data)
 
 
