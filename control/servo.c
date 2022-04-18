@@ -1,8 +1,14 @@
 #include "servo.h"
 #include "map.h"
 
+void servo_init(void){
+  GPIOA->DIR |= (1<<4);         // set PA4 as output for servo control
+  GPIOA->DEN |= (1<<4);         // set PA4 as output for servo control
+  Servo_90_Degree();
+}
+
 /* This function generate a 3% duty cycle from 20ms PWM signal or 50Hz*/
-void drive(int angle)
+void drive_servo(int angle)
 {
   int delay = map(angle, MINANGLE, MAXANGLE, MINONDELAY, MAXONDELAY);
   int i=0;  	 

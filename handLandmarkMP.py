@@ -55,7 +55,8 @@ class HandDetector():
     def findPositions(self, img,hands = 'all', draw=True):
         hands_positions = {}
         h, w, c = img.shape
-        count = 1
+        rcount = 1
+        lcount = 1
         if self.results.multi_hand_landmarks:
             for hand_landmarks in self.results.multi_hand_landmarks:
                 hand_position = {
@@ -80,8 +81,14 @@ class HandDetector():
                         hand_position['pinky'].append((cx,cy))
                     else:
                         hand_position['wrist']=(cx,cy)
-                hands_positions[f"hand{count}"] = hand_position
-                count+=1
+                
+                if((hand_position['pinky'][-1][0] - hand_position['thumb'][-1][0]) > 0):
+                    hands_positions[f"right_hand{rcount}"] = hand_position
+                    rcount+=1
+                else:
+                    hands_positions[f"left_hand{lcount}"] = hand_position
+                    lcount+=1
+                
         return hands_positions
     
 

@@ -4,5 +4,6 @@ __pycache__
 *.ewd
 *.ewp
 *.ewt
+*.eww
 settings
 Debug

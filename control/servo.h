@@ -9,7 +9,8 @@
 #define MINANGLE (0)
 #define MAXANGLE (180)
 
-void drive(int angle);
+void servo_init(void);
+void drive_servo(int angle);
 void Delay_MicroSecond(int time);
 void Servo_90_Degree(void);
 
